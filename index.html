@@ -23,11 +23,51 @@
     <!-- External CSS File -->
     <link rel="stylesheet" href="./styles/style.css">
 
-    
-
 </head>
 <body>
-    
+    <!-- Header Start-->
+     <section>
+        <header>
+            <!-- Header Navbar Start -->
+            <div class="navbar bg-[#15803D] shadow-sm">
+                <div class="navbar-start">
+                    <div class="dropdown text-white">
+                        <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+                        </div>
+                        <ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow text-black">
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Gallery</a></li>
+                            <li><a href="#">Plant a Tree</a></li>
+                        </ul>
+                    </div>
+                    <a class="text-2xl font-semibold text-white">Green Earth</a>
+                </div>
+                <div class="navbar-center hidden lg:flex text-white">
+                    <ul class="menu menu-horizontal px-1">
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Gallery</a></li>
+                        <li><a href="#">Plant a Tree</a></li>
+                    </ul>
+                </div>
+                <div class="navbar-end">
+                    <a class="btn rounded-3xl bg-[#FACC15] text-[#15803D] border-none">Plant a Tree</a>
+                </div>
+            </div>
+            <!-- Header Navbar End -->
+            
+            <!-- Header Banner Start -->
+            <div class="header-banner w-full h-[383px] relative bg-[#CFF0DC] flex flex-col gap-3 justify-center items-center">
+                <img src="./assets/hero-leaf1.png" alt="Banner Leaf" class="absolute left-[4%] top-[27%] w-70 h-70">
+                <img src="./assets/hero-leaf2.png" alt="Banner Right" class="absolute right-[4%] top-[27%] w-70 h-70">
+                <h1 class="font-bold text-5xl">Plant a Tree, Grow a Future</h1>
+                <p class="text-base text-center text-gray-600">Join our mission to plant 1 million trees and make the Earth greener for future <br>generations.</p>
+                <button class="btn rounded-3xl bg-[#FACC15] text-[#15803D] border-none mt-3">Get Involved</button>
+            </div>
+            <!-- Header Banner End -->
+        </header>
+    </section>
+    <!-- Header End -->
     <script src="./scripts/script.js"></script>
 </body>
 </html>
