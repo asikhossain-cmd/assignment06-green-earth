@@ -1,5 +1,13 @@
 
 
+// Active Button By Click
+const removeBtn = () => {
+    const getBtn = document.querySelectorAll('.category-btn');
+    getBtn.forEach((btnRemove) => {
+        btnRemove.classList.remove('active')
+    })
+}
+
 // Get and Desing the Category Section
 const getPlantCategory = () => {
     const url = 'https://openapi.programming-hero.com/api/categories'
@@ -16,7 +24,7 @@ const displayCategory = (categories) => {
         const createNewElement = document.createElement('div')
         createNewElement.innerHTML = `
             <div id="category-name-section" class="category-name flex flex-col gap-1">
-                <p onclick = "getPlantsByCategory(${category.id})" class="categories-name-btn text-lg font-medium w-full text-left py-2 px-2 hover:text-white transition-all rounded-md hover:bg-[#15803D] cursor-pointer">${categoryName}</p>
+                <p id='category-btn${category.id}' onclick = "getPlantsByCategory(${category.id})" class="category-btn categories-name-btn text-lg font-medium w-full text-left py-2 px-2 hover:text-white transition-all rounded-md hover:bg-[#15803D] cursor-pointer">${categoryName}</p>
             </div>
         `;
         getCategorySection.appendChild(createNewElement)
@@ -45,6 +53,8 @@ const viewAllPlants = () => {
 
 // Display All Plants
 const displayAllTrees = (plants) => {
+    const getPlantsContainer = document.getElementById('tree-card-container');
+    getPlantsContainer.innerHTML = '';
     for(const plant of plants.slice(1,7)) {
         // Get the display trees section
         const getPlantsContainer = document.getElementById('tree-card-container');
@@ -67,10 +77,23 @@ const displayAllTrees = (plants) => {
         getPlantsContainer.appendChild(createNewPlatsDiv)
 
     }
+    const getViewBtn = document.getElementById('view-all-btn');
+    getViewBtn.style.display = 'block'
     // Get the All trees button
+    
     const allTreesBtn = document.getElementById('all-trees-btn')
+    removeBtn()
+    allTreesBtn.addEventListener('mouseenter', () => {
+        allTreesBtn.style.backgroundColor = '#15803D'
+        allTreesBtn.style.color = 'white'
+    })
+    allTreesBtn.addEventListener('mouseleave', () => {
+        allTreesBtn.style.background = 'none'
+        allTreesBtn.style.color = 'black'
+    })
     allTreesBtn.style.backgroundColor = '#15803D'
     allTreesBtn.style.color = 'white'
+    
 }
 
 // View All Plant
@@ -82,7 +105,7 @@ const displayAllTrees = (plants) => {
 
         const createNewPlatsDiv = document.createElement('div');
         createNewPlatsDiv.innerHTML = `
-                <div class="tree-card max-w-80 h-full p-4 bg-white rounded-xl flex flex-col justify-between">
+                <div class="tree-card max-w-80 h-[450px] p-4 bg-white rounded-xl flex flex-col justify-between">
                     <img src="${plant.image}" alt="Picture" class="h-50 w-[100vw] rounded-xl">
                     <h2 class="text-lg font-semibold mt-3">${plant.name}</h2>
                     <p class="text-sm font-normal text-gray-700 text-justify mt-2">${plant.description}</p>
@@ -111,6 +134,15 @@ const getPlantsByCategory = (id) => {
     .then((response) => response.json())
     .then((resData) => {
         categoryItems(resData.plants)
+        const getAllPlantBtn = document.getElementById('all-trees-btn');
+        getAllPlantBtn.style.background = 'none';
+        getAllPlantBtn.style.color = 'black';
+
+        removeBtn()
+
+        const getAllBtn = document.getElementById(`category-btn${id}`)
+        getAllBtn.classList.add('active')
+        
     })
 }
 const categoryItems = (plants) => {
@@ -121,7 +153,7 @@ const categoryItems = (plants) => {
 
         const createNewPlatsDiv = document.createElement('div');
         createNewPlatsDiv.innerHTML = `
-                <div class="tree-card max-w-80 h-full p-4 bg-white rounded-xl flex flex-col justify-between">
+                <div class="tree-card max-w-80 mAX-h-[600px] p-4 bg-white rounded-xl flex flex-col justify-between">
                     <img src="${plant.image}" alt="Picture" class="h-50 w-[100vw] rounded-xl">
                     <h2 class="text-lg font-semibold mt-3">${plant.name}</h2>
                     <p class="text-sm font-normal text-gray-700 text-justify mt-2">${plant.description}</p>
@@ -134,6 +166,8 @@ const categoryItems = (plants) => {
         `;
         getPlantsContainer.appendChild(createNewPlatsDiv)
     }   
+    const getViewBtn = document.getElementById('view-all-btn');
+    getViewBtn.style.display = 'none';
 
 }
 
