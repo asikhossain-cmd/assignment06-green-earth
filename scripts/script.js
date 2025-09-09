@@ -68,9 +68,9 @@ const displayAllTrees = (plants) => {
                     <p class="text-sm font-normal text-gray-700 text-justify mt-2">${plant.description}</p>
                     <div class="flex justify-between items-center">
                         <p class="px-4 py-1 rounded-2xl text-[#15803D] bg-green-200 mt-2">Fruit Tree</p>
-                        <p class="font-semibold">৳${plant.price}</p>
+                        <p class="font-semibold">৳<span>${plant.price}</span></p>
                     </div>
-                    <button onclick = 'addToCartBtn()' class="add-to-cart-btn w-full bg-[#15803D] p-2 rounded-3xl text-white mt-3 cursor-pointer">Add to Cart</button>
+                    <button class="add-to-cart-btn w-full bg-[#15803D] p-2 rounded-3xl text-white mt-3 cursor-pointer">Add to Cart</button>
                 </div>
         `;
 
@@ -105,15 +105,15 @@ const displayAllTrees = (plants) => {
 
         const createNewPlatsDiv = document.createElement('div');
         createNewPlatsDiv.innerHTML = `
-                <div class="tree-card max-w-80 h-[450px] p-4 bg-white rounded-xl flex flex-col justify-between">
+                <div class="tree-card max-w-80 h-full p-4 bg-white rounded-xl flex flex-col justify-between">
                     <img src="${plant.image}" alt="Picture" class="h-50 w-[100vw] rounded-xl">
                     <h2 class="text-lg font-semibold mt-3">${plant.name}</h2>
                     <p class="text-sm font-normal text-gray-700 text-justify mt-2">${plant.description}</p>
                     <div class="flex justify-between items-center">
                         <p class="px-4 py-1 rounded-2xl text-[#15803D] bg-green-200 mt-2">${plant.category}</p>
-                        <p class="font-semibold">৳${plant.price}</p>
+                        <p class="font-semibold">৳<span>${plant.price}</span></p>
                     </div>
-                    <button onclick = 'addToCartBtn()' class="add-to-cart-btn w-full bg-[#15803D] p-2 rounded-3xl text-white mt-3 cursor-pointer">Add to Cart</button>
+                    <button class="add-to-cart-btn w-full bg-[#15803D] p-2 rounded-3xl text-white mt-3 cursor-pointer">Add to Cart</button>
                 </div>
         `;
             
@@ -153,15 +153,15 @@ const categoryItems = (plants) => {
 
         const createNewPlatsDiv = document.createElement('div');
         createNewPlatsDiv.innerHTML = `
-                <div class="tree-card max-w-80 max-h-[600px] p-4 bg-white rounded-xl flex flex-col justify-between">
+                <div class="tree-card max-w-80 h-auto p-4 bg-white rounded-xl flex flex-col justify-between">
                     <img src="${plant.image}" alt="Picture" class="h-50 w-[100vw] rounded-xl">
                     <h2 class="text-lg font-semibold mt-3">${plant.name}</h2>
                     <p class="text-sm font-normal text-gray-700 text-justify mt-2">${plant.description}</p>
                     <div class="flex justify-between items-center">
                         <p class="px-4 py-1 rounded-2xl text-[#15803D] bg-green-200 mt-2">${plant.category}</p>
-                        <p class="font-semibold">৳${plant.price}</p>
+                        <p class="font-semibold">৳<span>${plant.price}</span></p>
                     </div>
-                    <button onclick = 'addToCartBtn()' class="add-to-cart-btn w-full bg-[#15803D] p-2 rounded-3xl text-white mt-3 cursor-pointer">Add to Cart</button>
+                    <button class="add-to-cart-btn w-full bg-[#15803D] p-2 rounded-3xl text-white mt-3 cursor-pointer">Add to Cart</button>
                 </div>
         `;
         getPlantsContainer.appendChild(createNewPlatsDiv)
@@ -173,18 +173,68 @@ const categoryItems = (plants) => {
 
 
 // Cart Items Show Section
-const getCartSection = document.getElementById('cart-container-section');
+let totalCart = 0
+const getCardContainer = document.getElementById('tree-card-container');
+getCardContainer.addEventListener('click', (e) => {
+    if(e.target.className.includes('add-to-cart-btn')) {
+        const getBtn = e.target;
+        totalCart+=1
 
 
+        console.log(totalCart)
+        const getPlantName = getBtn.parentNode.children[1].innerText;
+        const getPlantPrice = Number(getBtn.parentNode.children[3].children[1].children[0].innerText);
+       
 
-const getCards = document.querySelectorAll('.tree-card')
+        // Get the cart section
+        const getCartSection = document.getElementById('cart-items-container');
+
+        // Create a new div for cart
+        const createNewDiv = document.createElement('div');
+        createNewDiv.innerHTML = `
+                    <div id='cart-item-individual' class="w-full h-auto mb-2 p-3 bg-green-200 rounded-lg flex justify-between items-center">
+                        <div class="name-and-price">
+                            <p class="font-medium text-lg">${getPlantName}</p>
+                            <p class="text-gray-500 text-sm">৳${getPlantPrice} <span>* </span><span>${totalCart}</span></p>
+                        </div>
+                        <div class="cross-cancel">
+                            <i id="cross-cancel-cart-item" class="fa-solid fa-xmark text-gray-500 hover:text-red-500 cursor-pointer"></i>
+                        </div>
+                    </div>
+            `
+        
+        getCartSection.appendChild(createNewDiv);
 
 
-// console.log(getCards)
-// // Get the add to cart button
-const addToCartBtn = () => {
-    const getName = parentNode.childNode[0]
-        console.log(getName)
+        
+        createNewDiv.querySelector('i').addEventListener('click', () => {
+            createNewDiv.remove()
+            updatePrice(-getPlantPrice)
+        })
+
+        updatePrice(getPlantPrice)
+
+
+    }
+})
+
+const updatePrice = (updatedPrice) => {
+    let getTotalPrice = document.getElementById('total-money');
+    let getTotalPriceText = Number(getTotalPrice.innerText);
+    let getUpdatedPrice = getTotalPriceText + updatedPrice;
+    getTotalPrice.innerText = getUpdatedPrice
+
+    // Show and Disable the total amount section
+    const getCartTotal = document.getElementById('total-money-section-cart');
+    const getCartHorizontaLine = document.getElementById('cart-horizontal-line');
+    if(getUpdatedPrice > 0) {
+        // get the cart total section
+        getCartTotal.style.display = 'flex';
+        getCartHorizontaLine.style.display = 'block';
+    }else {
+        getCartTotal.style.display = 'none';
+        getCartHorizontaLine.style.display = 'none';
+    }
 }
 
 getAllPlant()
