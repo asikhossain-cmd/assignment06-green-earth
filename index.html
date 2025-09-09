@@ -71,7 +71,7 @@
 
     <!-- Main Page Body -->
     <section class="bg-green-50">
-        <div class="body-container grid grid-cols-[2fr_5fr_1fr] gap-4 w-11/12 mx-auto py-15">
+        <div class="body-container grid grid-cols-[2fr_6fr_2fr] gap-4 w-11/12 mx-auto py-15">
             <h1 class="col-span-3 text-center text-2xl font-semibold">Choose Your Trees</h1>
             <div id="category-section" class="category-container max-w-[1000px] h-auto p-4 rounded-lg">
                 <h2 class="text-xl font-bold mb-4">Categories</h2>
@@ -82,11 +82,19 @@
             <div id="tree-card-container" class="max-w-[1000px] h-Auto grid grid-cols-3 gap-3">
                 
             </div>
-            <div class="cart-container max-w-[1000px] h-auto">
-                <h2>Your Cart</h2>
+            <div id="cart-container-section" class="cart-container max-w-[1000px] h-auto bg-white p-4 rounded-lg flex flex-col gap-5">
+                <h2 class="text-xl font-bold mb-4">Your Cart</h2>
+                <div class="cart-items-container mt-3">
+
+                </div>
+                <hr>
+                <div class="total-money-section flex justify-between items-center">
+                    <p>Total</p>
+                    <p>৳<span id="total-money">00</span></p>
+                </div>
             </div>
             <div class="col-span-2 text-right">
-                <p id="view-all-btn"><a onclick = 'viewAllPlants()' class="cursor-pointer">View All</a></p>
+                <p id="view-all-btn"><a onclick = 'viewAllPlants()' class="cursor-pointer">View All</a><p>
             </div>
         </div>
     </section>

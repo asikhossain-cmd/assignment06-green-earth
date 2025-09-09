@@ -62,7 +62,7 @@ const displayAllTrees = (plants) => {
 
         const createNewPlatsDiv = document.createElement('div');
         createNewPlatsDiv.innerHTML = `
-                <div class="tree-card max-w-80 h-full p-4 bg-white rounded-xl flex flex-col justify-between">
+                <div id='trees-cards' class="tree-card max-w-80 h-full p-4 bg-white rounded-xl flex flex-col justify-between">
                     <img src="${plant.image}" alt="Picture" class="h-50 w-[100vw] rounded-xl">
                     <h2 class="text-lg font-semibold mt-3">${plant.name}</h2>
                     <p class="text-sm font-normal text-gray-700 text-justify mt-2">${plant.description}</p>
@@ -70,7 +70,7 @@ const displayAllTrees = (plants) => {
                         <p class="px-4 py-1 rounded-2xl text-[#15803D] bg-green-200 mt-2">Fruit Tree</p>
                         <p class="font-semibold">৳${plant.price}</p>
                     </div>
-                    <button class="w-full bg-[#15803D] p-2 rounded-3xl text-white mt-3 cursor-pointer">Add to Cart</button>
+                    <button onclick = 'addToCartBtn()' class="add-to-cart-btn w-full bg-[#15803D] p-2 rounded-3xl text-white mt-3 cursor-pointer">Add to Cart</button>
                 </div>
         `;
 
@@ -113,7 +113,7 @@ const displayAllTrees = (plants) => {
                         <p class="px-4 py-1 rounded-2xl text-[#15803D] bg-green-200 mt-2">${plant.category}</p>
                         <p class="font-semibold">৳${plant.price}</p>
                     </div>
-                    <button class="w-full bg-[#15803D] p-2 rounded-3xl text-white mt-3 cursor-pointer">Add to Cart</button>
+                    <button onclick = 'addToCartBtn()' class="add-to-cart-btn w-full bg-[#15803D] p-2 rounded-3xl text-white mt-3 cursor-pointer">Add to Cart</button>
                 </div>
         `;
             
@@ -153,7 +153,7 @@ const categoryItems = (plants) => {
 
         const createNewPlatsDiv = document.createElement('div');
         createNewPlatsDiv.innerHTML = `
-                <div class="tree-card max-w-80 mAX-h-[600px] p-4 bg-white rounded-xl flex flex-col justify-between">
+                <div class="tree-card max-w-80 max-h-[600px] p-4 bg-white rounded-xl flex flex-col justify-between">
                     <img src="${plant.image}" alt="Picture" class="h-50 w-[100vw] rounded-xl">
                     <h2 class="text-lg font-semibold mt-3">${plant.name}</h2>
                     <p class="text-sm font-normal text-gray-700 text-justify mt-2">${plant.description}</p>
@@ -161,7 +161,7 @@ const categoryItems = (plants) => {
                         <p class="px-4 py-1 rounded-2xl text-[#15803D] bg-green-200 mt-2">${plant.category}</p>
                         <p class="font-semibold">৳${plant.price}</p>
                     </div>
-                    <button class="w-full bg-[#15803D] p-2 rounded-3xl text-white mt-3 cursor-pointer">Add to Cart</button>
+                    <button onclick = 'addToCartBtn()' class="add-to-cart-btn w-full bg-[#15803D] p-2 rounded-3xl text-white mt-3 cursor-pointer">Add to Cart</button>
                 </div>
         `;
         getPlantsContainer.appendChild(createNewPlatsDiv)
@@ -169,6 +169,22 @@ const categoryItems = (plants) => {
     const getViewBtn = document.getElementById('view-all-btn');
     getViewBtn.style.display = 'none';
 
+}
+
+
+// Cart Items Show Section
+const getCartSection = document.getElementById('cart-container-section');
+
+
+
+const getCards = document.querySelectorAll('.tree-card')
+
+
+// console.log(getCards)
+// // Get the add to cart button
+const addToCartBtn = () => {
+    const getName = parentNode.childNode[0]
+        console.log(getName)
 }
 
 getAllPlant()
