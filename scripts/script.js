@@ -153,7 +153,7 @@ const categoryItems = (plants) => {
 
         const createNewPlatsDiv = document.createElement('div');
         createNewPlatsDiv.innerHTML = `
-                <div class="tree-card max-w-80 h-auto p-4 bg-white rounded-xl flex flex-col justify-between">
+                <div class="tree-card max-w-80 h-[500px] p-4 bg-white rounded-xl flex flex-col justify-between">
                     <img src="${plant.image}" alt="Picture" class="h-50 w-[100vw] rounded-xl">
                     <h2 class="text-lg font-semibold mt-3">${plant.name}</h2>
                     <p class="text-sm font-normal text-gray-700 text-justify mt-2">${plant.description}</p>
@@ -195,7 +195,7 @@ getCardContainer.addEventListener('click', (e) => {
                     <div id='cart-item-individual' class="w-full h-auto mb-2 p-3 bg-green-200 rounded-lg flex justify-between items-center">
                         <div class="name-and-price">
                             <p class="font-medium text-lg">${getPlantName}</p>
-                            <p class="text-gray-500 text-sm">৳${getPlantPrice} <span>* </span><span>${totalCart}</span></p>
+                            <p class="text-gray-500 text-sm">৳${getPlantPrice} <span>* </span><span>1</span></p>
                         </div>
                         <div class="cross-cancel">
                             <i id="cross-cancel-cart-item" class="fa-solid fa-xmark text-gray-500 hover:text-red-500 cursor-pointer"></i>
@@ -204,7 +204,6 @@ getCardContainer.addEventListener('click', (e) => {
             `
         
         getCartSection.appendChild(createNewDiv);
-
 
         
         createNewDiv.querySelector('i').addEventListener('click', () => {
@@ -217,6 +216,8 @@ getCardContainer.addEventListener('click', (e) => {
 
     }
 })
+
+// Check Total Price and Decrease and Show and Hide the total price section (This is a function)
 
 const updatePrice = (updatedPrice) => {
     let getTotalPrice = document.getElementById('total-money');
