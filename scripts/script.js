@@ -227,11 +227,14 @@ const updatePrice = (updatedPrice) => {
     // Show and Disable the total amount section
     const getCartTotal = document.getElementById('total-money-section-cart');
     const getCartHorizontaLine = document.getElementById('cart-horizontal-line');
+    const getNoCartNotice = document.getElementById('show-please-add-cart');
     if(getUpdatedPrice > 0) {
-        // get the cart total section
+        // get the cart total section\
+        getNoCartNotice.style.display = 'none';
         getCartTotal.style.display = 'flex';
         getCartHorizontaLine.style.display = 'block';
     }else {
+        getNoCartNotice.style.display = 'block';
         getCartTotal.style.display = 'none';
         getCartHorizontaLine.style.display = 'none';
     }
