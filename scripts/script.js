@@ -195,7 +195,7 @@ getCardContainer.addEventListener('click', (e) => {
                     <div id='cart-item-individual' class="w-full h-auto mb-2 p-3 bg-green-200 rounded-lg flex justify-between items-center">
                         <div class="name-and-price">
                             <p class="font-medium text-lg">${getPlantName}</p>
-                            <p class="text-gray-500 text-sm">৳${getPlantPrice} <span>* </span><span>1</span></p>
+                            <p class="text-gray-500 text-sm">৳${getPlantPrice} <span class='fa-solid fa-xmark text-gray-500 text-[12px]'></span><span> 1</span></p>
                         </div>
                         <div class="cross-cancel">
                             <i id="cross-cancel-cart-item" class="fa-solid fa-xmark text-gray-500 hover:text-red-500 cursor-pointer"></i>
