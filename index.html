@@ -116,8 +116,8 @@
             <div class="campaign-body flex justify-between space-x-10 items-center">
                 <img src="./assets/about.png" alt="Campaing Plant Image" class="campaign-image flex-1">
                 <div class="campaign-text flex-1 text-gray-600">
-                    <p>Green Earth is a global tree plantation initiative dedicated to fighting climate change. Since our start, we’ve planted over 500,000 trees worldwide. By joining our campaign, you help restore forests, create habitats for wildlife, and combat global warming.</p>
-                    <ul class="list-disc mt-5 ml-8">
+                    <p class="text-[13px]">Green Earth is a global tree plantation initiative dedicated to fighting climate change. Since our start, we’ve planted over 500,000 trees worldwide. By joining our campaign, you help restore forests, create habitats for wildlife, and combat global warming.</p>
+                    <ul class="list-disc mt-5 ml-8 text-[10px]">
                         <li>Restoration of natural habitats</li>
                         <li>Improvement of air quality</li>
                         <li>Support for local communities</li>
@@ -133,15 +133,15 @@
         <div class="our-impact w-full h-auto mt-10 bg-[#CFF0DC] p-10 px-15">
             <h1 class="text-center text-2xl font-semibold mb-8">Our Impact</h1>
             <div class="our-impact-cards flex justify-between">
-                <div class="trees-planted-card flex gap-2 flex-col justify-center items-center w-70 h-20 bg-white rounded-lg shadow-sm">
+                 <div class="hover:bg-green-200 hover:shadow-xl hover:scale-105 hover:transition-all cursor-pointer trees-planted-card flex gap-2 flex-col justify-center items-center w-70 h-20 bg-white rounded-lg shadow-sm">
                     <h1 class="text-[#15803D] text-xl font-semibold">500K+</h1>
                     <p class="text-xs text-gray-500">Trees Planted</p>
                 </div>
-                <div class="communities-involved-card flex gap-2 flex-col justify-center items-center w-70 h-20 bg-white rounded-lg shadow-sm">
+                <div class="hover:bg-green-200 hover:shadow-xl hover:scale-105 hover:transition-all cursor-pointer communities-involved-card flex gap-2 flex-col justify-center items-center w-70 h-20 bg-white rounded-lg shadow-sm">
                     <h1 class="text-[#15803D] text-xl font-semibold">120+</h1>
                     <p class="text-xs text-gray-500">Communities Involved</p>
                 </div>
-                <div class="countries-reached flex gap-2 flex-col justify-center items-center w-70 h-20 bg-white rounded-lg shadow-sm">
+                <div class="hover:bg-green-200 hover:shadow-xl hover:scale-105 hover:transition-all cursor-pointer countries-reached flex gap-2 flex-col justify-center items-center w-70 h-20 bg-white rounded-lg shadow-sm">
                     <h1 class="text-[#15803D] text-xl font-semibold">30+</h1>
                     <p class="text-xs text-gray-500">Countries Reached</p>
                 </div>
@@ -154,7 +154,7 @@
     <footer class="w-100%">
         <div class="footer-plant-tree w-100% bg-[#166534] h-[500px] flex flex-col justify-center gap-8">
             <p class="text-center font-medium text-white text-2xl ">Plant a Tree Today</p>
-            <fieldset class="fieldset bg-base-200 border-base-300 rounded-box w-[500px] border p-8 bg-[#15803D] mx-auto">
+            <fieldset class="fieldset bg-base-200 border-base-300 rounded-box w-[500px] p-8 bg-[#15803D] mx-auto shadow-xl border-none">
 
                 <input type="email" class="input w-full" placeholder="Your Name" />
 
@@ -176,7 +176,25 @@
     <!-- Footer Section End -->
 
     <!-- Modal Show Start -->
-     
+    <!-- Open the modal using ID.showModal() method -->
+    <!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
+    <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+        <div class="modal-box">
+            <div id="details-modal-container" class="details-container p-2 border-solid border-2 rounded-md border-gray-200">
+                <!-- <h1>Guava Tree</h1>
+                <img src="" alt="">
+                <p>Category</p>
+                <p>Price</p>
+                <p>Description</p> -->
+            </div>
+            <div class="modal-action">
+                <form method="dialog">
+                    <!-- if there is a button in form, it will close the modal -->
+                    <button class="btn">Close</button>
+                </form>
+            </div>
+        </div>
+    </dialog>
     <!-- Modal Show End -->
 
     <script src="./scripts/script.js"></script>

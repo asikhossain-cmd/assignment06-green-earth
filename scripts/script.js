@@ -8,6 +8,32 @@ const removeBtn = () => {
     })
 }
 
+
+// Get plant details
+const plantWordDetails = (id) => {
+    const url = `https://openapi.programming-hero.com/api/plant/${id}`
+    fetch(url)
+    .then((response) => response.json())
+    .then((resData) => showPlantDetails(resData.plants))
+}
+
+// Show Plant details in modal
+const showPlantDetails = (plant) => {
+    // Get Modal Parant
+    const getModal = document.getElementById('details-modal-container');
+    getModal.innerHTML = '';
+    const createNewDiv = document.createElement('div');
+    createNewDiv.innerHTML = `
+        <h1>${plant.name}</h1>
+        <img src="${plant.image}" alt="Plant Image">
+        <p>${plant.category}</p>
+        <p>${plant.price}</p>
+        <p>${plant.description}</p>
+    `
+    getModal.appendChild(createNewDiv);
+    document.getElementById('my_modal_5').showModal()
+}
+
 // Get and Desing the Category Section
 const getPlantCategory = () => {
     const url = 'https://openapi.programming-hero.com/api/categories'
@@ -64,7 +90,7 @@ const displayAllTrees = (plants) => {
         createNewPlatsDiv.innerHTML = `
                 <div id='trees-cards' class="tree-card max-w-80 h-full p-4 bg-white rounded-xl flex flex-col justify-between">
                     <img src="${plant.image}" alt="Picture" class="h-50 w-[100vw] rounded-xl">
-                    <h2 class="text-lg font-semibold mt-3">${plant.name}</h2>
+                    <h2 onclick = 'plantWordDetails(${plant.id})' class="text-lg font-semibold mt-3">${plant.name}</h2>
                     <p class="text-sm font-normal text-gray-700 text-justify mt-2">${plant.description}</p>
                     <div class="flex justify-between items-center">
                         <p class="px-4 py-1 rounded-2xl text-[#15803D] bg-green-200 mt-2">Fruit Tree</p>
@@ -107,7 +133,7 @@ const displayAllTrees = (plants) => {
         createNewPlatsDiv.innerHTML = `
                 <div class="tree-card max-w-80 h-full p-4 bg-white rounded-xl flex flex-col justify-between">
                     <img src="${plant.image}" alt="Picture" class="h-50 w-[100vw] rounded-xl">
-                    <h2 class="text-lg font-semibold mt-3">${plant.name}</h2>
+                    <h2 onclick = 'plantWordDetails(${plant.id})' class="text-lg font-semibold mt-3">${plant.name}</h2>
                     <p class="text-sm font-normal text-gray-700 text-justify mt-2">${plant.description}</p>
                     <div class="flex justify-between items-center">
                         <p class="px-4 py-1 rounded-2xl text-[#15803D] bg-green-200 mt-2">${plant.category}</p>
@@ -155,7 +181,7 @@ const categoryItems = (plants) => {
         createNewPlatsDiv.innerHTML = `
                 <div class="tree-card max-w-80 h-[500px] p-4 bg-white rounded-xl flex flex-col justify-between">
                     <img src="${plant.image}" alt="Picture" class="h-50 w-[100vw] rounded-xl">
-                    <h2 class="text-lg font-semibold mt-3">${plant.name}</h2>
+                    <h2 onclick = 'plantWordDetails(${plant.id})' class="text-lg font-semibold mt-3">${plant.name}</h2>
                     <p class="text-sm font-normal text-gray-700 text-justify mt-2">${plant.description}</p>
                     <div class="flex justify-between items-center">
                         <p class="px-4 py-1 rounded-2xl text-[#15803D] bg-green-200 mt-2">${plant.category}</p>
