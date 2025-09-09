@@ -26,11 +26,14 @@ const showPlantDetails = (plant) => {
     getModal.innerHTML = '';
     const createNewDiv = document.createElement('div');
     createNewDiv.innerHTML = `
-        <h1>${plant.name}</h1>
-        <img src="${plant.image}" alt="Plant Image">
-        <p>${plant.category}</p>
-        <p>${plant.price}</p>
-        <p>${plant.description}</p>
+        <h1 class = 'text-xl font-semibold mb-2'>${plant.name}</h1>
+        <div class='bg-[url(${plant.image})] bg-cover bg-center rounded-xl bg-no-repeat w-full h-[200px]'> 
+
+        </div>
+       <!-- <img src="${plant.image}" alt="Plant Image" class="w-80 rounded-xl"> -->
+        <p class="text-lg rounded-2xl text-black mt-2"><span class='font-medium'>Category: </span>  ${plant.category}</p>
+        <p class="text-lg rounded-2xl text-black mt-2"><span class='font-medium'>Price: ৳ </span>${plant.price}</p>
+        <p class='text-lg rounded-2xl text-black mt-2'><span class='font-medium'>Description: </span> ${plant.description}</p>
     `
     getModal.appendChild(createNewDiv);
     document.getElementById('my_modal_5').showModal()
@@ -95,7 +98,7 @@ const displayAllTrees = (plants) => {
                     <h2 onclick = 'plantWordDetails(${plant.id})' class="text-lg font-semibold mt-3">${plant.name}</h2>
                     <p class="text-sm font-normal text-gray-700 text-justify mt-2">${plant.description}</p>
                     <div class="flex justify-between items-center">
-                        <p class="px-4 py-1 rounded-2xl text-[#15803D] bg-green-200 mt-2">Fruit Tree</p>
+                        <p class="px-4 py-1 rounded-2xl text-[#15803D] bg-green-200 mt-2">${plant.category}</p>
                         <p class="font-semibold">৳<span>${plant.price}</span></p>
                     </div>
                     <button class="add-to-cart-btn w-full bg-[#15803D] p-2 rounded-3xl text-white mt-3 cursor-pointer">Add to Cart</button>
