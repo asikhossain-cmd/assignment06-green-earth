@@ -1,5 +1,7 @@
 
 
+
+
 // Active Button By Click
 const removeBtn = () => {
     const getBtn = document.querySelectorAll('.category-btn');
@@ -199,15 +201,11 @@ const categoryItems = (plants) => {
 
 
 // Cart Items Show Section
-let totalCart = 0
 const getCardContainer = document.getElementById('tree-card-container');
 getCardContainer.addEventListener('click', (e) => {
     if(e.target.className.includes('add-to-cart-btn')) {
         const getBtn = e.target;
-        totalCart+=1
 
-
-        console.log(totalCart)
         const getPlantName = getBtn.parentNode.children[1].innerText;
         const getPlantPrice = Number(getBtn.parentNode.children[3].children[1].children[0].innerText);
        
@@ -267,7 +265,147 @@ const updatePrice = (updatedPrice) => {
     }
 }
 
+
+
+
+// For Mobile Devices
+
+// Get and Desing the Category Section
+
+const getPlantCategoryMobile = () => {
+    const url = 'https://openapi.programming-hero.com/api/categories'
+    fetch(url)
+    .then((response => response.json()))
+    .then((resData => displayCategoryMobile(resData.categories)))
+}
+
+const displayCategoryMobile = (categories) => {
+    categories.forEach((category) => {
+        const categoryName = category.category_name;
+        // Get the category Section to display
+        const getCategorySection = document.getElementById('category-section-mobile');
+        const createNewElement = document.createElement('div')
+        createNewElement.innerHTML = `
+            <div id="category-name-section" class="category-name flex flex-col gap-1">
+                <p id='category-btn${category.id}' onclick = "getPlantsByCategory(${category.id})" class="category-btn categories-name-btn text-lg font-medium w-full text-left py-2 px-2 hover:text-white transition-all rounded-md hover:bg-[#15803D] cursor-pointer">${categoryName}</p>
+            </div>
+        `;
+        getCategorySection.appendChild(createNewElement)
+    })
+}
+
+
+
+
+// Fetch and Display All Trees
+const getAllPlantMob = () => {
+    const url = 'https://openapi.programming-hero.com/api/plants'
+    fetch(url)
+    .then((response) => response.json())
+    .then(resData => {
+        displayAllTrees(resData.plants)
+        
+        }
+    )
+};
+
+
+const getCategoryBtnMob = document.getElementById('category-mob');
+getCategoryBtnMob.addEventListener('click', () => {
+    const getCategorySecMob = document.getElementById('category-section-mobile');
+    if(getCategorySecMob.style.display === 'block') {
+        getCategorySecMob.style.display = 'none';
+    }else {
+        getCategorySecMob.style.display = 'block';
+        getCategorySecMob.style.position = 'fixed';
+    }
+})
+
+
+// Cart Mobile
+
+const getCartMobBtn = document.getElementById('cart-btn');
+getCartMobBtn.addEventListener('click', () => {
+    // get the cart section
+    const getCartMobSec = document.getElementById('cart-section-mobile');
+    if(getCartMobSec.style.display === 'block') {
+        getCartMobSec.style.display = 'none';
+    }else {
+        getCartMobSec.style.display = 'block';
+        getCartMobSec.style.position = 'fixed';
+    }
+})
+
+
+// Cart Items Show Section
+const getCardContainerMob = document.getElementById('tree-card-container');
+getCardContainerMob.addEventListener('click', (e) => {
+    if(e.target.className.includes('add-to-cart-btn')) {
+        const getBtn = e.target;
+
+        const getPlantName = getBtn.parentNode.children[1].innerText;
+        const getPlantPrice = Number(getBtn.parentNode.children[3].children[1].children[0].innerText);
+       
+
+        // Get the cart section
+        const getCartSection = document.getElementById('cart-container-mob');
+
+        // Create a new div for cart
+        const createNewDiv = document.createElement('div');
+        createNewDiv.innerHTML = `
+                    <div id='cart-item-individual' class="w-full h-auto mb-2 p-3 bg-green-200 rounded-lg flex justify-between items-center">
+                        <div class="name-and-price">
+                            <p class="font-medium text-lg">${getPlantName}</p>
+                            <p class="text-gray-500 text-sm">৳${getPlantPrice} <span class='fa-solid fa-xmark text-gray-500 text-[12px]'></span><span> 1</span></p>
+                        </div>
+                        <div class="cross-cancel">
+                            <i id="cross-cancel-cart-item" class="fa-solid fa-xmark text-gray-500 hover:text-red-500 cursor-pointer"></i>
+                        </div>
+                    </div>
+            `
+        
+        getCartSection.appendChild(createNewDiv);
+
+        
+        createNewDiv.querySelector('i').addEventListener('click', () => {
+            createNewDiv.remove()
+            updatePriceMob(-getPlantPrice)
+        })
+
+        updatePriceMob(getPlantPrice)
+
+
+    }
+})
+
+// Check Total Price and Decrease and Show and Hide the total price section (This is a function)
+
+const updatePriceMob = (updatedPrice) => {
+    let getTotalPrice = document.getElementById('total-money-mob');
+    let getTotalPriceText = Number(getTotalPrice.innerText);
+    let getUpdatedPrice = getTotalPriceText + updatedPrice;
+    getTotalPrice.innerText = getUpdatedPrice
+
+    // Show and Disable the total amount section
+    const getCartTotal = document.getElementById('total-money-section-mob-cart');
+    const getCartHorizontaLine = document.getElementById('cart-horizontal-line-mob');
+    const getNoCartNotice = document.getElementById('show-please-add-cart-mob');
+    if(getUpdatedPrice > 0) {
+        // get the cart total section\
+        getNoCartNotice.style.display = 'none';
+        getCartTotal.style.display = 'flex';
+        getCartHorizontaLine.style.display = 'block';
+    }else {
+        getNoCartNotice.style.display = 'block';
+        getCartTotal.style.display = 'none';
+        getCartHorizontaLine.style.display = 'none';
+    }
+}
+
+
 getAllPlant()
+getAllPlantMob()
 getPlantCategory()
+getPlantCategoryMobile()
 
 

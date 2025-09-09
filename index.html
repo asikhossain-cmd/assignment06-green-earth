@@ -41,7 +41,7 @@
                             <li><a href="#">Plant a Tree</a></li>
                         </ul>
                     </div>
-                    <a class="text-2xl font-semibold text-white">Green Earth</a>
+                    <a class="text-xl md:text-2xl font-semibold text-white">Green Earth</a>
                 </div>
                 <div class="navbar-center hidden lg:flex text-white">
                     <ul class="menu menu-horizontal px-1">
@@ -51,15 +51,15 @@
                     </ul>
                 </div>
                 <div class="navbar-end">
-                    <a class="btn rounded-3xl bg-[#FACC15] text-[#15803D] border-none">Plant a Tree</a>
+                    <a class="btn rounded-3xl bg-[#FACC15] shadow-none text-[#15803D] border-none">Plant a Tree</a>
                 </div>
             </div>
             <!-- Header Navbar End -->
             
             <!-- Header Banner Start -->
             <div class="header-banner w-full h-[383px] relative bg-[#CFF0DC] flex flex-col gap-3 justify-center items-center p-4">
-                <img src="./assets/hero-leaf1.png" alt="Banner Leaf" class="opacity-25 md:opacity-100 absolute left-[4%] top-[17%] w-80 h-80">
-                <img src="./assets/hero-leaf2.png" alt="Banner Right" class="opacity-25 md:opacity-100 absolute right-[4%] top-[17%] w-80 h-80">
+                <img src="./assets/hero-leaf1.png" alt="Banner Leaf" class="opacity-5 md:opacity-100 absolute left-[4%] top-[17%] w-80 h-80">
+                <img src="./assets/hero-leaf2.png" alt="Banner Right" class="opacity-5 md:opacity-100 absolute right-[4%] top-[17%] w-80 h-80">
                 <h1 class="font-bold text-2xl md:text-4xl text-center">Plant a Tree, Grow a Future</h1>
                 <p class="text-[10px] text-center text-gray-600">Join our mission to plant 1 million trees and make the Earth greener for future <br>generations.</p>
                 <button class="btn rounded-3xl bg-[#FACC15] text-[#15803D] border-none mt-3">Get Involved</button>
@@ -73,7 +73,7 @@
 
     <!-- Product Show Card Start-->
     <section class="bg-green-50">
-        <div class="body-container grid grid-cols-1 md:grid-cols-[2fr_6fr_2fr] gap-4 w-11/12 mx-auto py-15">
+        <div class="body-container grid grid-cols-1 justify-items-center content-center md:grid-cols-[2fr_6fr_2fr] gap-4 w-11/12 mx-auto py-15">
             <h1 class="col-span-3 text-center text-2xl font-semibold">Choose Your Trees</h1>
             <div id="category-section" class="category-container hidden md:block max-w-[1000px] h-auto p-4 rounded-lg">
                 <h2 class="text-xl font-bold mb-4">Categories</h2>
@@ -84,7 +84,7 @@
             <div id="tree-card-container" class="max-w-[1000px] h-Auto grid grid-cols-1 md:grid-cols-3 gap-3">
                 
             </div>
-            <div id="cart-container-section" class="cart-container max-w-[1000px] h-auto bg-white p-4 rounded-lg hidden md:flex flex-col gap-5">
+            <div id="cart-container-section" class="cart-container w-full h-auto bg-white p-4 rounded-lg hidden md:flex flex-col gap-5">
                 <h2 class="text-xl font-bold mb-4">Your Cart</h2>
                 <div id="cart-items-container" class="cart-items mt-1 w-full h-auto">
                     
@@ -111,12 +111,12 @@
 
     <!-- Campaign Section Design Start -->
     <section>
-        <div class="campaign-section w-[50%] mx-auto">
+        <div class="campaign-section w-11/12 md:w-[50%] mx-auto">
             <h1 class="text-center text-2xl font-semibold mb-8">About the Campaign</h1>
-            <div class="campaign-body md:flex-row flex-col flex justify-between space-x-10 items-center">
+            <div class="campaign-body md:flex-row flex-col flex justify-between space-x-0 md:space-x-10 items-center">
                 <img src="./assets/about.png" alt="Campaing Plant Image" class="campaign-image flex-1">
-                <div class="campaign-text flex-1 text-gray-600">
-                    <p class="text-[13px]">Green Earth is a global tree plantation initiative dedicated to fighting climate change. Since our start, we’ve planted over 500,000 trees worldwide. By joining our campaign, you help restore forests, create habitats for wildlife, and combat global warming.</p>
+                <div class="campaign-text flex-1 text-gray-600 mt-3">
+                    <p class="text-[13px] text-center">Green Earth is a global tree plantation initiative dedicated to fighting climate change. Since our start, we’ve planted over 500,000 trees worldwide. By joining our campaign, you help restore forests, create habitats for wildlife, and combat global warming.</p>
                     <ul class="list-disc mt-5 ml-8 text-[10px]">
                         <li>Restoration of natural habitats</li>
                         <li>Improvement of air quality</li>
@@ -132,7 +132,7 @@
     <section>
         <div class="our-impact w-full h-auto mt-10 bg-[#CFF0DC] p-10 px-15">
             <h1 class="text-center text-2xl font-semibold mb-8">Our Impact</h1>
-            <div class="our-impact-cards flex justify-between">
+            <div class="our-impact-cards flex flex-col md:flex-row items-center gap-5 md:gap-0 justify-between">
                  <div class="hover:bg-green-200 hover:shadow-xl hover:scale-105 hover:transition-all cursor-pointer trees-planted-card flex gap-2 flex-col justify-center items-center w-70 h-20 bg-white rounded-lg shadow-sm">
                     <h1 class="text-[#15803D] text-xl font-semibold">500K+</h1>
                     <p class="text-xs text-gray-500">Trees Planted</p>
@@ -152,9 +152,9 @@
 
     <!-- Footer Section Start -->
     <footer class="w-100%">
-        <div class="footer-plant-tree w-100% bg-[#166534] h-[500px] flex flex-col justify-center gap-8">
+        <div class="footer-plant-tree w-100% bg-[#166534] h-[400px] md:h-[500px] flex flex-col justify-center gap-8">
             <p class="text-center font-medium text-white text-2xl ">Plant a Tree Today</p>
-            <fieldset class="fieldset bg-base-200 border-base-300 rounded-box w-[500px] p-8 bg-[#15803D] mx-auto shadow-xl border-none">
+            <fieldset class="fieldset bg-base-200 border-base-300 rounded-box w-[300px] md:w-[500px] p-8 bg-[#15803D] mx-auto shadow-xl border-none">
 
                 <input type="email" class="input w-full" placeholder="Your Name" />
 
@@ -181,11 +181,7 @@
     <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
         <div class="modal-box">
             <div id="details-modal-container" class="details-container p-2 border-solid border-2 rounded-md border-gray-200">
-                <!-- <h1>Guava Tree</h1>
-                <img src="" alt="">
-                <p>Category</p>
-                <p>Price</p>
-                <p>Description</p> -->
+                
             </div>
             <div class="modal-action">
                 <form method="dialog">
@@ -198,9 +194,69 @@
     <!-- Modal Show End -->
 
     <!-- Mobile Bottom Menu -->
-    <section class="fixed md:hidden flex ">
-        <div class="mobile-bottom-menu">
+     <section>
+        <div class="mobile-menu md:hidden flex justify-center text-xl gap-10 h-auto py-0 bg-green-500 text-white w-full">
+            <div class="home flex justify-center flex-col items-center cursor-pointer hover:bg-yellow-500 p-4 rounded-xl">
+                <i class="fa-solid fa-house"></i>
+                <p><a href="#">Home</a></p>
+            </div>
+            <div class="categories flex justify-center flex-col items-center cursor-pointer hover:bg-yellow-500 p-4 rounded-xl">
+                <i class="fa-solid fa-list"></i>
+                <p>Category</p>
+            </div>
+            <div class="cart flex justify-center flex-col items-center cursor-pointer hover:bg-yellow-500 p-4 rounded-xl">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <p>Cart</p>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="mobile-menu fixed bottom-0 md:hidden flex justify-center text-xl gap-10 h-auto py-0 bg-green-500 text-white w-full">
+            <div class="home flex justify-center flex-col items-center cursor-pointer hover:bg-yellow-500 p-4 rounded-xl">
+                <i class="fa-solid fa-house"></i>
+                <p><a href="#">Home</a></p>
+            </div>
+            <div id="category-mob" class="categories flex justify-center flex-col items-center cursor-pointer hover:bg-yellow-500 p-4 rounded-xl">
+                <i class="fa-solid fa-list"></i>
+                <p>Category</p>
+            </div>
+            <div id="cart-btn" class="cart flex justify-center flex-col items-center cursor-pointer hover:bg-yellow-500 p-4 rounded-xl">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <p>Cart</p>
+            </div>
+        </div>
+    </section>
 
+    <!-- Mobile Category Section -->
+
+    <section id="category-section-mobile"  class="h-[70%] w-[50%] backdrop-blur-xl hidden top-11 md:hidden rounded-lg overflow-scroll">
+        <div class="category-container">
+            <h1 class="text-white text-xl text-center p-2">Category</h1>
+            <div class="categories-container mt-3 h-full w-full p-2 overflow-scroll">
+                <p  onclick = 'getAllPlantMob()' class="text-lg font-medium w-full text-left py-2 px-2 hover:text-white transition-all bg-[#15803D] text-white rounded-md hover:bg-[#15803D] cursor-pointer">All Trees</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mobile Cart Section -->
+
+    <section id="cart-section-mobile"  class="h-[70%] w-[50%] backdrop-blur-lg hidden right-0 top-11 rounded-lg overflow-scroll">
+        <div class="cart-container">
+            <h1 class="text-white text-xl text-center p-2">Your Cart</h1>
+            <div id="cart-container-mob" class="cart-container mt-3 h-full w-full p-2 overflow-scroll">
+                
+            </div>
+            <!-- Show a messege if no one add to cart -->
+            <div id="show-please-add-cart-mob" class="p-3">
+                <h1 class="text-sm text-gray-600 text-center">You Didn't Add Any Product Yet</h1>
+                <p class="text-xs text-gray-600 text-center">Kindly Add Your Favourite One</p>
+            </div>
+
+             <hr id="cart-horizontal-line-mob" class="hidden text-gray-300 p-3">
+            <div id="total-money-section-mob-cart" class="total-money-section justify-between items-center hidden p-3">
+                <p>Total:</p>
+                <p>৳<span id="total-money-mob">0</span></p>
+            </div>
         </div>
     </section>
 
