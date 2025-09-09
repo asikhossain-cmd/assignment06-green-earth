@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="./styles/style.css">
 
 </head>
-<body>
+<body class="bg-green-50">
     <!-- Header Start-->
      <section>
         <header class="w-full bg-[#15803D] shadow-sm">
@@ -69,7 +69,9 @@
     </section>
     <!-- Header End -->
 
-    <!-- Main Page Body -->
+    <!-- Main Page Body Start-->
+
+    <!-- Product Show Card Start-->
     <section class="bg-green-50">
         <div class="body-container grid grid-cols-[2fr_6fr_2fr] gap-4 w-11/12 mx-auto py-15">
             <h1 class="col-span-3 text-center text-2xl font-semibold">Choose Your Trees</h1>
@@ -105,7 +107,48 @@
             </div>
         </div>
     </section>
-    
+    <!-- Product Show Card Start-->
+
+    <!-- Campaign Section Design Start -->
+    <section>
+        <div class="campaign-section w-[50%] mx-auto">
+            <h1 class="text-center text-2xl font-semibold mb-8">About the Campaign</h1>
+            <div class="campaign-body flex justify-between space-x-10 items-center">
+                <img src="./assets/about.png" alt="Campaing Plant Image" class="campaign-image flex-1">
+                <div class="campaign-text flex-1 text-gray-600">
+                    <p>Green Earth is a global tree plantation initiative dedicated to fighting climate change. Since our start, we’ve planted over 500,000 trees worldwide. By joining our campaign, you help restore forests, create habitats for wildlife, and combat global warming.</p>
+                    <ul class="list-disc mt-5 ml-8">
+                        <li>Restoration of natural habitats</li>
+                        <li>Improvement of air quality</li>
+                        <li>Support for local communities</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Main Page Body End -->
+
+    <!-- Our Impact Section Start -->
+    <section>
+        <div class="our-impact w-full h-auto mt-10 bg-[#CFF0DC] p-10 px-15">
+            <h1 class="text-center text-2xl font-semibold mb-8">Our Impact</h1>
+            <div class="our-impact-cards flex justify-between">
+                <div class="trees-planted-card flex gap-2 flex-col justify-center items-center w-70 h-20 bg-white rounded-lg shadow-sm">
+                    <h1 class="text-[#15803D] text-xl font-semibold">500K+</h1>
+                    <p class="text-xs text-gray-500">Trees Planted</p>
+                </div>
+                <div class="communities-involved-card flex gap-2 flex-col justify-center items-center w-70 h-20 bg-white rounded-lg shadow-sm">
+                    <h1 class="text-[#15803D] text-xl font-semibold">120+</h1>
+                    <p class="text-xs text-gray-500">Communities Involved</p>
+                </div>
+                <div class="countries-reached flex gap-2 flex-col justify-center items-center w-70 h-20 bg-white rounded-lg shadow-sm">
+                    <h1 class="text-[#15803D] text-xl font-semibold">30+</h1>
+                    <p class="text-xs text-gray-500">Countries Reached</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Our Impact Section End -->
     <script src="./scripts/script.js"></script>
 </body>
 </html>
